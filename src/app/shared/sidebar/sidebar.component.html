@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <div *ngFor="let menu of _sidebar.menu" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" routerLinkActive="active" [routerLink]="[menu.url]" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                    <span class="badge badge-light"><i [class]="menu.icon"></i></span> {{menu.titulo}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 shadow p-3 mb-5 bg-success rounded ">
+            <img [src]="usuario.img | imagen" width="96" height="96" class="rounded d-block mx-auto ">
+            <h3 class="profile-username text-center ">{{ usuario.apellidos }} {{ usuario.nombre }}</h3>
+
+            <div class="badge badge-primary text-wrap" style="width: 6rem;">
+                {{usuario.rol}}
+            </div>
+        </div>
+        <div class="col-12 ">
+            <ul class="list-group ">
+                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                    Email
+                    <span class="badge badge-primary badge-pill ">{{usuario.email}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center ">
+                    Google
+                    <span class="badge badge-primary badge-pill ">{{usuario.google}}</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

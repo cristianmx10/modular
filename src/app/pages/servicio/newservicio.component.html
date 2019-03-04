@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-md-center" style="align-content: center">
+    <div class="row">
+        <div class="card  mx-1 mt-1 bg-info" style="width: 100;height: 100;">
+            <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarServicio(f)">
+                <h4 class="card-title text-center">Servicio</h4>
+                <div class="card-body">
+                    <h6 class="text-center">
+                        <input [(ngModel)]="servicio.nombre" name="nombre" required type="text" class="form-control" placeholder="Nombre del servicio">
+                    </h6>
+                    <h4 class="text-center">
+                        <textarea [(ngModel)]="servicio.detalles" name="detalles" required type="text" placeholder="Detalles" class="form-control"></textarea>
+                    </h4>
+                    <h4 class="text-center">
+                        <input [(ngModel)]="servicio.precios" name="precios" required type="number" step=".01" placeholder="Precio" class="form-control">
+                    </h4>
+
+                    <div class="text-center mt-3">
+                        <button type="submit" class="btn btn-primary fa fa-save"></button>
+                        <a routerLink="/servicio" class="btn btn-success fa fa-reply ml-1"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

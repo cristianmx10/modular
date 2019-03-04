@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <form ngNativeValidate [formGroup]="forma" (ngSubmit)="guardarReserva()">
+        <div class="form-body">
+            <h3 class="box-title">Informacion Personal</h3>
+            <hr class="m-t-0 m-b-40">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">DNI</label>
+                        <div class="col-md-9">
+                            <input formControlName="dni" name="dni" type="number" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger row">
+                        <label class="control-label text-right col-md-3">NOMBRE</label>
+                        <div class="col-md-9">
+                            <input formControlName="nombre" name="nombre" type="text" class="form-control form-control-danger">
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+                <!--/span-->
+                <div class="col-md-6">
+                    <div class="form-group has-danger row">
+                        <label class="control-label text-right col-md-3">APELLIDOS</label>
+                        <div class="col-md-9">
+                            <input formControlName="apellidos" name="apellidos" type="text" class="form-control form-control-danger">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group has-danger row">
+                        <label class="control-label text-right col-md-3">NUMERO</label>
+                        <div class="col-md-9">
+                            <input formControlName="numero" name="numero" type="number" class="form-control form-control-danger">
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <h3 class="box-title">Reserva</h3>
+            <hr class="m-t-0 m-b-40">
+            <!--/row-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Fecha inicio</label>
+                        <div class="col-md-9">
+                            <input formControlName="fechainicio" name="fechainicio" type="date" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Fecha salida</label>
+                        <div class="col-md-9">
+                            <input formControlName="fechafin" name="fechafin" type="date" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--/row-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3">Servicio</label>
+                        <div class="col-md-9">
+                            <select [(ngModel)]="reserva.servicio" formControlName="servicio" name="servicio" class="form-control custom-select">
+                           
+                                <option *ngFor="let ser of servicios" [value]="ser._id" >
+                                        {{ser.nombre}} {{ser.precios | currency}}
+                                      </option>
+              </select>
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+            </div>
+            <!--/row-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="control-label text-right col-md-3"></label>
+                        <div class="col-md-9">
+                            <button type="submit" class="btn btn-primary btn-block fa fa-calendar"> Reservar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

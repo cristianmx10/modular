@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-md-center">
+    <div class="row">
+        <div class="card  mx-1 mt-1 bg-info " style="width: auto;height: auto;">
+
+            <h5 class="card-title text-center">Usuario</h5>
+            <div class="card-body text-dark">
+                <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarUsuario(f)">
+                    <input [(ngModel)]="usuario.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre">
+                    <input [(ngModel)]="usuario.apellidos" name="apellidos" type="text" class="form-control mt-1" placeholder="Apellidos">
+                    <input [(ngModel)]="usuario.email" name="email" type="email" class="form-control mt-1" placeholder="Email">
+                    <input [(ngModel)]="usuario.password" name="password" type="password" class="form-control mt-1" placeholder="Contraseña">
+                    <select [(ngModel)]="usuario.rol" name="rol" class="form-control mt-1">
+                    <option value="ADMIN_ROLE">ADMIN</option>
+                    <option value="RECEP_ROLE">RECEP</option>
+                    <option value="USER_ROLE">USER</option>
+                </select>
+
+                    <div class="text-center mt-2">
+                        <button type="submit" class="btn btn-primary fa fa-save"></button>
+                        <a routerLink="/usuario" class="btn btn-success fa fa-reply ml-1"></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

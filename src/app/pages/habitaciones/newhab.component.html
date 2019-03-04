@@ -1,0 +1,60 @@
+<div class="row animated fadeIn">
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Habitacion</h4>
+                <form ngNativeValidate #f="ngForm" (ngSubmit)="guardarHabitacion(f)" class="form p-t-20">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input [(ngModel)]="habitacion.numero" name="numero" placeholder="Numero" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input [(ngModel)]="habitacion.piso" name="piso" pla type="number" class="form-control" placeholder="piso">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <div class="input-group">
+
+                            <select [(ngModel)]="habitacion.estado" name="estado" class="form-control mt-1">
+                          <option value="LIBRE">Libre</option>
+                          <option value="OCUPADO">Ocupado</option>
+                          <option value="RESERVADO">Reservado</option>
+                      </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input [(ngModel)]="habitacion.precios" name="precios" pla type="number" class="form-control" placeholder="Precio">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria</label>
+                        <div class="input-group">
+                            <select (change)="cambioCategoria($event.target.value)" [(ngModel)]="habitacion.categoria" name="categoria" class="form-control" required>
+                         
+                          <option *ngFor="let cat of categorias" [value]="cat._id" >
+                            {{cat.nombre}}
+                          </option>
+                        </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                  </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5" *ngIf="habitacion._id">
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Foto</h4>
+                <img (click)="mostrarmodal(habitacion._id)" style="width: 100%;height: auto;" [src]="habitacion.img | imagen:'habitacion'" class="pointer">
+
+            </div>
+        </div>
+    </div>

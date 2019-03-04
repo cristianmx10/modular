@@ -1,0 +1,44 @@
+<div class="jumbotron jumbotron-fluid bg-info">
+    <div class="container">
+        <h1 class="display-4 fa fa-bed"> Habitaciones</h1>
+        <p class="lead ">Mantenimiento de habitaciones <span class="badge badge-danger"> Total de habitaciones: {{totalHabitaciones}}</span></p>
+        <input #input type="text" class="form-control" placeholder="Buscar usuario">
+        <div class="text-right mt-2">
+            <button [routerLink]="['/newhab','nuevo']" class="btn btn-outline-dark fa fa-plus"> Agregar habitacion</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="align-content: center">
+    <button class="btn btn-outline-dark fa fa-chevron-circle-left"></button>
+    <button class="btn btn-outline-dark fa fa-chevron-circle-right"></button>
+    <div class="row">
+        <div *ngFor="let hab of habitaciones" class="card border mx-1 mt-1 px-1 bg-success " style="width: auto;height: auto;">
+
+            <div class="card-body text-dark">
+                <img [src]="hab.img | imagen" style="width: 100%;height: auto;" class="rounded d-block mx-auto mt-2">
+                <h5 class="card-title text-center">{{hab.categoria.nombre}}</h5>
+                <h6 class="card-title text-center">{{hab.numero}}</h6>
+                <h6 class="text-center">
+                    <div class="badge badge-info text-wrap" style="width: 6rem;">
+                        Piso: {{hab.piso}}
+                    </div>
+                </h6>
+                <h4 class="text-center">
+                    <div class="badge badge-primary text-wrap" style="width: 6rem;">
+                        Precio: S/. {{hab.precios}}
+                    </div>
+                </h4>
+                <h6 class="text-center">
+                    <div class="badge badge-primary text-wrap" style="width: 6rem;">
+                        {{hab.estado}}
+                    </div>
+                </h6>
+
+                <div class="text-center mt-2">
+                    <button (click)="borrarHabitacion(hab)" class="btn btn-danger fa fa-trash"></button>
+                    <button [routerLink]="['/newhab',hab._id]" class="btn btn-primary fa fa-edit ml-1"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

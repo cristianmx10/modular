@@ -1,0 +1,41 @@
+<div class="jumbotron jumbotron-fluid bg-success">
+    <div class="container">
+        <h1 class="display-4 fa fa-users"> Usuarios</h1>
+        <p class="lead">Mantenimiento de usuarios <span class="badge badge-danger"> Total usuarios: {{totalUsuarios}}</span></p>
+        <input #input (keyup)="buscarUsuario( input.value )" type="text" class="form-control" placeholder="Buscar usuario">
+        <div class="text-right mt-2">
+            <button [routerLink]="['/user','nuevo']" class="btn btn-outline-dark fa fa-plus"> Agregar nuevo usuario</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="align-content: center">
+    <button (click)="cambiarDesde(-10)" class="btn btn-outline-dark fa fa-chevron-circle-left"></button>
+    <button (click)="cambiarDesde(10)" class="btn btn-outline-dark fa fa-chevron-circle-right"></button>
+    <div class="row">
+        <div *ngFor="let us of usuarios" class="card border-info mx-1 mt-1 bg-info " style="width: auto;height: auto;">
+            <img [src]="us.img | imagen" width="75" height="75" class="rounded-circle d-block mx-auto mt-2">
+            <div class="card-body text-dark">
+                <h5 class="card-title text-center">{{us.nombre}} {{us.apellidos}}</h5>
+                <h6 class="card-title text-center">{{us.email}}</h6>
+                <h6 class="text-center">
+                    <div *ngIf="us.google" class="badge badge-primary text-wrap" style="width: 6rem;">
+                        Google
+                    </div>
+                    <div *ngIf="!us.google" class="badge badge-secondary text-wrap" style="width: 6rem;">
+                        Normal
+                    </div>
+                </h6>
+                <h6 class="text-center">
+                    <div class="badge badge-success text-wrap" style="width: 6rem;">
+                        {{us.rol}}
+                    </div>
+                </h6>
+
+                <div class="text-center mt-2">
+                    <button (click)="borrarUsuario(us)" class="btn btn-danger fa fa-trash"></button>
+                    <button [routerLink]="['/user',us._id]" class="btn btn-primary fa fa-edit ml-1"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

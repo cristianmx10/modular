@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div class="login-box">
+                <div class="login-logo">
+                    <a><b>Adas</b>PALACE</a>
+                </div>
+                <!-- /.login-logo -->
+                <div class="card">
+                    <div class="card-body login-card-body">
+                        <p class="login-box-msg">Iniciar Sesion</p>
+
+                        <form ngNativeValidate #f="ngForm" action="../../index2.html" (ngSubmit)="ingresar(f)">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                </div>
+                                <input ngModel name="email" type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-key"></i></span>
+                                </div>
+                                <input ngModel name="password" type="password" class="form-control" placeholder="Contraseña" required>
+                            </div>
+                            <div class="row">
+
+                                <!-- /.col -->
+                                <div>
+                                    <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="social-auth-links text-center mt-3 mb-3 col">
+                                <button type="button" id="btnGoogle" class="btn btn-block btn-primary">
+                                        Google
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

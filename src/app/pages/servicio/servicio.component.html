@@ -1,0 +1,36 @@
+<div class="jumbotron jumbotron-fluid bg-primary">
+    <div class="container">
+        <h1 class="display-4 fa fa-street-view"> Servicios</h1>
+        <p class="lead">Mantenimiento de servicios <span class="badge badge-danger"> Total servicios: {{totalServicios}}</span></p>
+        <input #input type="text" class="form-control" placeholder="Buscar usuario">
+        <div class="text-right mt-2">
+            <button [routerLink]="['/service','nuevo']" class="btn btn-outline-dark fa fa-plus"> Agregar Servicio</button>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="align-content: center">
+    <button (click)="cambiarDesde(-10)" class="btn btn-outline-dark fa fa-chevron-circle-left"></button>
+    <button (click)="cambiarDesde(10)" class="btn btn-outline-dark fa fa-chevron-circle-right"></button>
+    <div class="row">
+        <div *ngFor="let ser of servicios" class="card  mx-1 mt-1 bg-info" style="width: 100;height: 100;">
+            <h4 class="card-title text-center">{{ser.nombre}}</h4>
+            <div class="card-body">
+                <h6 class="text-center">
+                    <div class="badge badge-dark text-wrap" style="width: 6rem;">
+                        {{ser.detalles}}
+                    </div>
+                </h6>
+                <h4 class="text-center">
+                    <div class="badge badge-success text-wrap" style="width: 6rem;">
+                        Precio: {{ser.precios | currency:'S/.'}}
+                    </div>
+                </h4>
+
+                <div class="text-center mt-3">
+                    <button (click)="borrarServicio(ser)" class="btn btn-danger fa fa-trash"></button>
+                    <button [routerLink]="['/service',ser._id]" class="btn btn-primary fa fa-edit ml-1"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

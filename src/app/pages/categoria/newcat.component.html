@@ -1,0 +1,26 @@
+<div class="col-lg-7">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Categoria</h4>
+            <form ngNativeValidate #f="ngForm" (ngSubmit)="guardarCategoria(f)" class="form p-t-20">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input [(ngModel)]="categoria.nombre" name="numero" placeholder="Nombre" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <textarea [(ngModel)]="categoria.detalles" name="detalles" pla class="form-control" placeholder="Detalles"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+              <i class="fa fa-save"></i>
+              Guardar
+            </button>
+                <a routerLink="/categoria" class="btn btn-success waves-effect waves-light m-r-10 ml-1">
+                    <i class="fa fa-reply"></i>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

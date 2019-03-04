@@ -1,0 +1,15 @@
+<div class="col-12 m-t-30">
+    <h4 class="m-b-0">Habitaciones</h4>
+    <p class="text-muted m-t-0 font-12">Cards can be organized into Masonry-like columns with just CSS by wrapping them in <code>card-columns</code></p>
+    <div class="card-columns">
+        <div *ngFor="let hab of habitaciones" class="card">
+            <img class="card-img-top img-fluid" [src]="hab.img | imagen" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">{{hab.categoria.nombre}}</h4>
+                <p class="card-text">{{hab.categoria.detalles}}</p>
+                <p class="card-text">{{hab.estado}}</p>
+                <button [routerLink]="['/habreserva',hab._id]" type="button" class="btn btn-danger"><i class="fa fa-dollar-sign"> {{hab.precios}}</i> Reservar</button>
+            </div>
+        </div>
+    </div>
+</div>
